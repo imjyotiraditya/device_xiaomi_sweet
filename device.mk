@@ -260,6 +260,14 @@ PRODUCT_PACKAGES += \
     libclearkeycasplugin \
     libdrmclearkeyplugin
 
+# Kernel
+LOCAL_KERNEL := device/xiaomi/sweet-kernel/Image.gz
+PRODUCT_COPY_FILES += \
+    $(LOCAL_KERNEL):kernel
+
+# Kernel headers
+PRODUCT_VENDOR_KERNEL_HEADERS := device/xiaomi/sweet-kernel/sm6150/kernel-headers
+
 # Perf
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.2.vendor
