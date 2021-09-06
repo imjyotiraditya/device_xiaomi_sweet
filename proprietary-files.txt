@@ -239,8 +239,6 @@ vendor/bin/init.qti.chg_policy.sh
 vendor/bin/init.qti.dcvs.sh
 vendor/bin/init.qti.qcv.sh
 vendor/bin/install-recovery.sh
-vendor/bin/ipacm
-vendor/bin/ipacm-diag
 vendor/bin/irsc_util
 vendor/bin/iw
 vendor/bin/iwpriv
@@ -460,8 +458,6 @@ vendor/etc/init/init.qti.qcv.rc
 vendor/etc/init/init_thermal-engine.rc
 vendor/etc/init/init.time_daemon.rc
 vendor/etc/init/init.vendor.sensors.rc
-vendor/etc/init/ipacm-diag.rc
-vendor/etc/init/ipacm.rc
 vendor/etc/init/ipa_fws.rc
 vendor/etc/init.leds.sh
 vendor/etc/init/mi_ic.rc
@@ -501,7 +497,6 @@ vendor/etc/init/vendor.qti.tftp.rc
 vendor/etc/init/vendor.sensors.qti.rc
 vendor/etc/init/vppservice.rc
 vendor/etc/init/wfdvndservice.rc
-vendor/etc/IPACM_cfg.xml
 vendor/etc/izat.conf
 vendor/etc/libnfc-mtp-SN100_38_4MHZ.conf
 vendor/etc/libnfc-mtp-SN100.conf
