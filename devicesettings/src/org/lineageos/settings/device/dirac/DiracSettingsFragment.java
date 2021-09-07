@@ -57,13 +57,13 @@ public class DiracSettingsFragment extends PreferenceFragment implements
         DiracUtils.initialize(getActivity());
         boolean enhancerEnabled = DiracUtils.isDiracEnabled();
 
-        mHeadsetType = (ListPreference) findPreference(PREF_HEADSET);
+        mHeadsetType = findPreference(PREF_HEADSET);
         mHeadsetType.setOnPreferenceChangeListener(this);
 
-        mPreset = (ListPreference) findPreference(PREF_PRESET);
+        mPreset = findPreference(PREF_PRESET);
         mPreset.setOnPreferenceChangeListener(this);
 
-        mHifi = (SwitchPreference) findPreference(PREF_HIFI);
+        mHifi = findPreference(PREF_HIFI);
         mHifi.setOnPreferenceChangeListener(this);
 
         boolean hifiEnable = DiracUtils.getHifiMode();
@@ -74,8 +74,7 @@ public class DiracSettingsFragment extends PreferenceFragment implements
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View view = LayoutInflater.from(getContext()).inflate(R.layout.dirac,
-                container, false);
+        final View view = LayoutInflater.from(getContext()).inflate(R.layout.dirac, container, false);
         ((ViewGroup) view).addView(super.onCreateView(inflater, container, savedInstanceState));
         return view;
     }
@@ -87,8 +86,7 @@ public class DiracSettingsFragment extends PreferenceFragment implements
         boolean enhancerEnabled = DiracUtils.isDiracEnabled();
 
         mTextView = view.findViewById(R.id.switch_text);
-        mTextView.setText(getString(enhancerEnabled ?
-                R.string.switch_bar_on : R.string.switch_bar_off));
+        mTextView.setText(getString(enhancerEnabled ? R.string.switch_bar_on : R.string.switch_bar_off));
 
         mSwitchBar = view.findViewById(R.id.switch_bar);
         Switch switchWidget = mSwitchBar.findViewById(android.R.id.switch_widget);

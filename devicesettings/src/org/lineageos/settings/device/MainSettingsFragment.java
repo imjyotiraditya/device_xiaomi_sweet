@@ -19,13 +19,12 @@ package org.lineageos.settings.device;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
-import android.widget.TextView;
-import androidx.preference.PreferenceFragment;
-import androidx.preference.Preference;
+
 import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragment;
 import androidx.preference.SwitchPreference;
 
-import org.lineageos.settings.device.Constants;
 import org.lineageos.settings.device.R;
 import org.lineageos.settings.device.utils.DisplayUtils;
 
@@ -33,6 +32,20 @@ public class MainSettingsFragment extends PreferenceFragment {
 
     private Preference mPrefRefreshRateInfo;
     private ListPreference mPrefRefreshRateConfig;
+    private final Preference.OnPreferenceChangeListener PrefListener = (preference, value) -> {
+        final String key = preference.getKey();
+
+        switch (key) {
+            case Constants.KEY_REFRESH_RATE_CONFIG:
+                setHzConfig();
+                break;
+            case Constants.KEY_DC_DIMMING:
+                DisplayUtils.setDcDimmingStatus((boolean) value);
+                break;
+        }
+
+        return true;
+    };
     private SwitchPreference mPrefDcDimming;
 
     @Override
@@ -44,38 +57,22 @@ public class MainSettingsFragment extends PreferenceFragment {
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.main_settings);
-        mPrefRefreshRateConfig = (ListPreference) findPreference(Constants.KEY_REFRESH_RATE_CONFIG);
+        mPrefRefreshRateConfig = findPreference(Constants.KEY_REFRESH_RATE_CONFIG);
         mPrefRefreshRateConfig.setOnPreferenceChangeListener(PrefListener);
-        mPrefRefreshRateInfo = (Preference) findPreference(Constants.KEY_REFRESH_RATE_INFO);
-        mPrefDcDimming = (SwitchPreference) findPreference(Constants.KEY_DC_DIMMING);
+        mPrefRefreshRateInfo = findPreference(Constants.KEY_REFRESH_RATE_INFO);
+        mPrefDcDimming = findPreference(Constants.KEY_DC_DIMMING);
         mPrefDcDimming.setOnPreferenceChangeListener(PrefListener);
         updateSummary();
     }
 
-    private Preference.OnPreferenceChangeListener PrefListener =
-        new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object value) {
-                final String key = preference.getKey();
-
-                if (Constants.KEY_REFRESH_RATE_CONFIG.equals(key)) {
-                    setHzConfig();
-                } else if (Constants.KEY_DC_DIMMING.equals(key)) {
-                    DisplayUtils.setDcDimmingStatus((boolean) value);
-                }
-
-                return true;
-            }
-        };
-
     private float getCurrentMinHz() {
         return Settings.System.getFloat(getContext().getContentResolver(),
-            Settings.System.MIN_REFRESH_RATE, Constants.DEFAULT_REFRESH_RATE);
+                Settings.System.MIN_REFRESH_RATE, Constants.DEFAULT_REFRESH_RATE);
     }
 
     private float getCurrentMaxHz() {
         return Settings.System.getFloat(getContext().getContentResolver(),
-            Settings.System.PEAK_REFRESH_RATE, Constants.DEFAULT_REFRESH_RATE);
+                Settings.System.PEAK_REFRESH_RATE, Constants.DEFAULT_REFRESH_RATE);
     }
 
     private void setHzConfig() {
@@ -89,8 +86,8 @@ public class MainSettingsFragment extends PreferenceFragment {
         }
         Handler.getMain().post(() -> {
             mPrefRefreshRateInfo.setSummary(
-                String.format(getString(R.string.current_refresh_rate_info),
-                    String.valueOf(Math.round(getCurrentMaxHz())), String.valueOf(Math.round(getCurrentMinHz()))));
+                    String.format(getString(R.string.current_refresh_rate_info),
+                            Math.round(getCurrentMaxHz()), Math.round(getCurrentMinHz())));
         });
     }
 }
