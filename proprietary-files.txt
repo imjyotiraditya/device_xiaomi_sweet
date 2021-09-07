@@ -998,7 +998,6 @@ vendor/lib64/libhfp.so
 vendor/lib64/libhta_hexagon_runtime.so
 vendor/lib64/libhta.so
 vendor/lib64/libhvx_interface.so
-vendor/lib64/libhwbinder.so
 vendor/lib64/libI420colorconvert.so
 vendor/lib64/libidl.so
 vendor/lib64/lib-imscmservice.so
@@ -1589,7 +1588,6 @@ vendor/lib/libhdmipassthru.so
 vendor/lib/libhdr_tm.so
 vendor/lib/libhfp.so
 vendor/lib/libhta_hexagon_runtime.so
-vendor/lib/libhwbinder.so
 vendor/lib/libI420colorconvert.so
 vendor/lib/libidl.so
 vendor/lib/lib-imscmservice.so
