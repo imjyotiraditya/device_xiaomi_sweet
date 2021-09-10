@@ -1,6 +1,4 @@
 # Unpinned section - from MIUI v12.5.6.0 RKFMIXM
-# odm
-odm/etc/media_profiles_V1_0.xml
 
 # product
 product/etc/permissions/telephony_product_privapp-permissions-qti.xml
@@ -509,26 +507,6 @@ vendor/etc/lm/AdaptLaunchFeature.xml
 vendor/etc/lm/AppClassifierFeature.xml
 vendor/etc/lm/GameOptimizationFeature.xml
 vendor/etc/lowi.conf
-vendor/etc/media_codecs_c2.xml
-vendor/etc/media_codecs_google_audio.xml
-vendor/etc/media_codecs_google_c2_audio.xml
-vendor/etc/media_codecs_google_c2_video.xml
-vendor/etc/media_codecs_google_c2.xml
-vendor/etc/media_codecs_google_telephony.xml
-vendor/etc/media_codecs_google_video_le.xml
-vendor/etc/media_codecs_google_video.xml
-vendor/etc/media_codecs_performance_v1.xml
-vendor/etc/media_codecs_performance_v2.xml
-vendor/etc/media_codecs_performance.xml
-vendor/etc/media_codecs_v1.xml
-vendor/etc/media_codecs_v2.xml
-vendor/etc/media_codecs_vendor_audio.xml
-vendor/etc/media_codecs_vendor_v1.xml
-vendor/etc/media_codecs_vendor_v2.xml
-vendor/etc/media_codecs_vendor.xml
-vendor/etc/media_codecs.xml
-vendor/etc/media_profiles_vendor.xml
-vendor/etc/media_profiles.xml
 vendor/etc/mi_us_sweep.wav
 vendor/etc/mi_us_whitenoise.wav
 vendor/etc/mixer_paths_idp.xml
@@ -1794,6 +1772,7 @@ vendor/lib/libvpplibrary.so
 vendor/lib/libvpptestutils.so
 vendor/lib/libvsim.so
 vendor/lib/libwapi_cert.so
+vendor/lib/libwfdaac_vendor.so
 vendor/lib/libwfdcodecv4l2_proprietary.so
 vendor/lib/libwfdcommonutils_proprietary.so
 vendor/lib/libwfdconfigutils_proprietary.so
