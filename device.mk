@@ -10,6 +10,11 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 # AAPT
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
+# AID/fs configs
+PRODUCT_PACKAGES += \
+    fs_config_dirs \
+    fs_config_files
+
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
@@ -35,6 +40,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.1-impl \
     android.hardware.soundtrigger@2.2-impl
+
+PRODUCT_PACKAGES += \
+    audio.a2dp.default \
+    audio.bluetooth.default \
+    audio.usb.default \
+    audio.r_submix.default
 
 PRODUCT_PACKAGES += \
     libOmxAacEnc \
@@ -208,6 +219,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/power-libperfmgr/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
+# RIL
+PRODUCT_PACKAGES += \
+    libjson
+
 # WiFi Display
 PRODUCT_PACKAGES += \
     libavservices_minijail \
@@ -226,7 +241,8 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service_64 \
     camera.device@3.6-external-impl \
-    camera.device@3.5-impl
+    camera.device@3.5-impl \
+    libdng_sdk.vendor
 
 PRODUCT_PACKAGES += \
     libshim_megvii
@@ -274,6 +290,7 @@ PRODUCT_PACKAGES += \
     libstagefrighthw
 
 PRODUCT_PACKAGES += \
+    libavservices_minijail.vendor \
     libcodec2_vndk.vendor \
     libcodec2_hidl@1.0.vendor
 
@@ -381,7 +398,8 @@ PRODUCT_PACKAGES += \
      libbatching \
      libgeofencing \
      libloc_core \
-     libgnss
+     libgnss \
+     libsensorndkbridge
 
 # Fingerprint
 PRODUCT_PACKAGES += \
